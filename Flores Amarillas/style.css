@@ -1,0 +1,113 @@
+/* Fondo y cuerpo */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: cursive;
+  background: #ffe6f0; /* rosado suave */
+  position: relative;
+}
+
+/* Texto superior */
+.top-text {
+  position: absolute;
+  top: 18vh; /* separado de los globos */
+  width: 100%;
+  text-align: center;
+  font-size: 5vw;
+  font-weight: bold;
+  color: yellow; /* amarillo */
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+/* Texto inferior */
+.bottom-text {
+  position: absolute;
+  bottom: 2vh;
+  width: 100%;
+  text-align: center;
+  font-size: 5vw;
+  font-weight: bold;
+  color: yellow; /* amarillo */
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+/* Imagen central */
+.center-image {
+  position: absolute;
+  top: 55%; /* más abajo */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.center-image img {
+  max-width: 40vw;
+  max-height: 50vh;
+}
+
+/* Globos */
+.balloons-container {
+  position: absolute;
+  top: 2vh;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.balloon {
+  width: 6vw;
+  height: 8vw;
+  background: pink;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  margin: 0 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  animation: floatBalloon 4s ease-in-out infinite alternate;
+  position: relative;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -2vw;
+  left: 50%;
+  width: 0.3vw;
+  height: 4vw;
+  background: gray;
+}
+
+@keyframes floatBalloon {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5vh) rotate(10deg); }
+  100% { transform: translateY(0) rotate(-10deg); }
+}
+
+/* Canvas luces de fondo */
+#lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* detrás de todo */
+}
+
+/* Canvas fuegos artificiales */
+#fireworks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
